@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="w.css">
+<script src="./w.js"></script>
+
+<style type="text/css">
+  #Box2,#Box3,#Box4{
+      width:200px;
+      height:100px;
+      padding:10px;
+      border:1px #ccc dashed;
+      float:left;
+      margin-right:10px;
+  }
+  </style>
+  <script type="text/javascript">
+  function AllowDrop(event){
+      event.preventDefault();
+  }
+  function Drag(event){
+      event.dataTransfer.setData("text",event.currentTarget.id);
+  }
+  function Drop(event){
+      event.preventDefault();
+      var data=event.dataTransfer.getData("text");
+      event.currentTarget.appendChild(document.getElementById(data));
+  }
+  </script>
+  <div id="Box2" ondrop="Drop(event)" ondragover="AllowDrop(event)">
+      <!-- <img id="Img2" src="圖片網址" draggable="true" ondragstart="Drag(event)"> -->
+      <div id="Img2" draggable="true" ondragstart="Drag(event)">123</div>
+  </div>
+  <div id="Box3" ondrop="Drop(event)" ondragover="AllowDrop(event)"></div>
+  <div id="Box4" ondrop="Drop(event)" ondragover="AllowDrop(event)"></div>
+  <div style="clear:both;"></div>
